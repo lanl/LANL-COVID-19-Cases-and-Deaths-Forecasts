@@ -8,6 +8,7 @@
 * Dave Osthus
 
 ## Description
+
 This repository contains an archive of the forecasts published on [https://covid-19.bsvgateway.org/](https://covid-19.bsvgateway.org/) from 2020-04-05 until 2021-09-27. Forecasts were published every Monday and Thursday unless otherwise noted in [Key Dates](#Key-Dates). Forecasts published on Mondays used observed data through Sunday; forecasts published on Thursdays used observed data through Wednesday.  
 
 All forecasted quantities were saved as csv files and conform loosely to the standards set by [https://covid19forecasthub.org/](https://github.com/reichlab/covid19-forecast-hub/blob/master/data-processed/README.md). Each file contains historical observations starting with 2020-01-22 and ending on the last observed date and the forecasts for the next 48 days or 6 weeks.  All forecast files names are prefixed with the last observed date used in the forecast. For example, a forecast published on the website on `2021-09-20` (a Monday) would have ``2021-09-19`` in its file name.  
@@ -18,7 +19,9 @@ Over the course of 18 months, we implemented two different forecasting models. W
 
 ## Version 1: April 5, 2020 - October 25, 2020 
 
-### Methodology 
+### Methodology
+
+The V1 model was a combination of a compartmental susceptible-infectious model and a hierarchical, Bayesian model. The model captured how people moved from susceptible to confirmed cases to deaths. The geography-specific growth rate parameters (i.e., how quickly the confirmed cases grew/declined) and the geography-specific case fatality fractions (i.e., the percentage of confirmed cases that resulted in death) were allowed to vary with time and were modeled hierarchically across neighboring geographies; they were learned from data rather than hard-coded. The main assumption of the V1 model was that the growth rates would tend towards zero over time as a result of sustained mitigation efforts.
 
 ### Forecast Files
 
@@ -32,7 +35,6 @@ Five forecast types were produced using V1 of the forecasting model at the US an
 | `deaths_quantiles`              | daily | 48 days | forecasted cumulative deaths          |
 | `confirmed_cases_peak_timing`   | weekly | 6 weeks | cumulative probability of peak occuring in week of `weekdate`  |
 
-
 The full names of the output CSVs from V1 are in the following format:
 -- **fcstdate** is the forecast date (e.g., 2020-10-27)
 -- **target** can be `cases` or `deaths`
@@ -40,7 +42,6 @@ The full names of the output CSVs from V1 are in the following format:
 -- **quantiles** indicates the forecast is summarized into quantiles
 -- **geography** can be `us` or `weekly`
 -- **website**  indicates the forecast was published. Note, early forecast CSVs are missing this tag. 
-
 
 ### Output Column Descriptions
 
@@ -63,13 +64,14 @@ V1 files have additional columns which identify the locale and date of either th
 | `fcst_date` | string | last observed date | "2020-04-01" through current | All observations on and before fcst_date are used for make forecasts|
 | `big_group`  | string | WHO global regions| e.g. "NORTHERN AFRICA AND WESTERN ASIA" | Only occures in global forecasts. Not in US state forecast output files. | 
 
-
-## Version 2: October 28, 2020 -- September 27, 2021
+## Version 2: October 28, 2020 - September 27, 2021
 
 ### Methodology 
 
-A description of V2 of the forecasting model, COVID-19 Forecasts using Fast Evaluations and Estimation (COFFEE) can be accessed on arXiv.  
+A description of V2 of the forecasting model, COVID-19 Forecasts using Fast Evaluations and Estimation (COFFEE), will be accessed soon on arXiv.
+
 ### Forecast Files
+
 Eight types of forecasts were produced using V2 of the forecasting model. Daily forecasts were made for the 48 days following the last observed day. Weekly forecasts were made for the 6 following epiweeks after the current observed epiweek. Because the COVID-19 Forecast Hub requests forecasts for the first full epiweek (except for Mondays which include data observed the previous Sunday) any forecast made with data ending on any day other than Saturday or Sunday will skip the current epiweek and aggregate daily forecasts beginning the following unobserved Sunday. **This skip results in a missing epiweek entry in the weekly aggregation output files for the current epiweek.** Also note that because of this definition of epiweek, the COVID-19 Forecast Hub are one week ahead of the CDC epiweek defined in the `lubridate` package.
 
 | Name   | Time Frame |  Forecast Horizon | Description 
@@ -116,8 +118,8 @@ The remaining columns identify the locale and date of either the forecast or his
 | `truth_deaths`    | integer | reported number of deaths | [0,∞) | Applies to cumulative and incident records. Forecasted entries have NA. | 
 | `big_group`  | string | WHO global regions| e.g. "NORTHERN AFRICA AND WESTERN ASIA" | Only occures in global forecasts. Not in US state forecast output files. | 
 
-
 ## Key Dates
+
 Below we note significant changes to the format or type of output ("Output Change"), or dates when we did not adhere to the normal Monday/Thursday schedule of publishing forecasts due to model or data issues. 
 
 | Forecast Date   | Type |  Description | Version 
@@ -135,8 +137,3 @@ Below we note significant changes to the format or type of output ("Output Chang
 | `2021-05-30` | Model issue  | No forecasts published | V2
 | `2021-06-10` | Output Change | Thursday forecasts terminated | V2
 | `2021-09-27` | Output Change | Last US/global forecasts | V2
-
-
-## LA-UR
-
-This repository is approved for public release and is assigned number LA-UR-20-22749.
