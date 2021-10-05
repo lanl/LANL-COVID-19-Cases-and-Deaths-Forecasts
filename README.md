@@ -68,7 +68,7 @@ V1 files have additional columns which identify the locale and date of either th
 
 ### Methodology 
 
-A description of V2 of the forecasting model, COVID-19 Forecasts using Fast Evaluations and Estimation (COFFEE), will be accessed soon on arXiv.
+A description of V2 of the forecasting model, COVID-19 Forecasts using Fast Evaluations and Estimation (COFFEE), can be accessed [here](http://arxiv.org/abs/2110.01546).
 
 ### Forecast Files
 
@@ -137,3 +137,13 @@ Below we note significant changes to the format or type of output ("Output Chang
 | `2021-05-30` | Model issue  | No forecasts published | V2
 | `2021-06-10` | Output Change | Thursday forecasts terminated | V2
 | `2021-09-27` | Output Change | Last US/global forecasts | V2
+
+## Notice and Disclaimer 
+
+For Scientific and Technical Information Only 
+
+© Copyright Triad National Security, LLC. All Rights Reserved. 
+
+For All Information
+
+Unless otherwise indicated, this information has been authored by an employee or employees of the Triad National Security, LLC., operator of the Los Alamos National Laboratory with the U.S. Department of Energy. The U.S. Government has rights to use, reproduce, and distribute this information. The public may copy and use this information without charge, provided that this Notice and any statement of authorship are reproduced on all copies. While every effort has been made to produce valid data, by using this data, User acknowledges that neither the Government nor Triad makes any warranty, express or implied, of either the accuracy or completeness of this information or assumes any liability or responsibility for the use of this information. Additionally, this information is provided solely for research purposes and is not provided for purposes of offering medical advice. Accordingly, the U.S. Government and Triad are not to be liable to any user for any loss or damage, whether in contract, tort (including negligence), breach of statutory duty, or otherwise, even if foreseeable, arising under or in connection with use of or reliance on the content displayed on this site.
